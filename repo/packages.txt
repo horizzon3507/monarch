@@ -1,0 +1,5 @@
+# One package source per line: <pkg-name> <upstream-git-url> <path-to-pkgbuild-dir>
+# -bin variants preferred so the repo build doesn't need a Rust toolchain.
+abstract-editor-bin https://github.com/fireflylabss/abstract.git packaging/aur/abstract-editor-bin
+stillmusic-bin      https://github.com/horizzon3507/stillmusic.git packaging/aur/stillmusic-bin
+usagenometer        https://github.com/horizzon3507/usagenometer.git packaging/aur

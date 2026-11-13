@@ -1,0 +1,62 @@
+name: Build HoryOS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  repo:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build deps
+        run: pacman -Syu --noconfirm --needed base-devel git pacman-contrib sudo
+      - name: Build horyos repo
+        run: |
+          useradd -m builder && echo 'builder ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/builder
+          chown -R builder .
+          sudo -u builder ./repo/build-repo.sh
+      - name: Publish repo to gh-pages
+        run: |
+          git config --global --add safe.directory "$PWD"
+          git config user.email "ci@horyos"
+          git config user.name "horyos-ci"
+          git fetch origin gh-pages:gh-pages || true
+          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages && git rm -rf .
+          fi
+          mkdir -p x86_64 && cp repo/out/x86_64/* x86_64/
+          git add x86_64 && git commit -m "repo: rebuild" || true
+          git push origin gh-pages
+
+  iso:
+    needs: repo
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install archiso
+        run: pacman -Syu --noconfirm --needed archiso git
+      - name: Prepare profile
+        run: |
+          # Our profile is an overlay on releng: pull in the bits we don't fork
+          # (bootloader templates, initrd hooks) and keep our own airootfs.
+          cp -rn /usr/share/archiso/configs/releng/{grub,syslinux,efiboot,bootstrap_image.*} archiso/ 2>/dev/null || true
+      - name: Build ISO
+        run: mkarchiso -v -w /tmp/work -o out archiso
+      - uses: actions/upload-artifact@v4
+        with:
+          name: horyos-iso
+          path: out/*.iso

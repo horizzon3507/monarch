@@ -1,0 +1,70 @@
+# HoryOS live/install image package list
+# Base
+base
+linux
+linux-firmware
+mkinitcpio
+mkinitcpio-archiso
+syslinux
+memtest86+-efi
+efibootmgr
+intel-ucode
+amd-ucode
+
+# Boot / net
+networkmanager
+network-manager-applet
+openssh
+curl
+wget
+git
+zsh
+
+# Sound
+pipewire
+pipewire-pulse
+pipewire-alsa
+pipewire-jack
+wireplumber
+pavucontrol
+
+# Wayland / Hyprland desktop
+hyprland
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+waybar
+wofi
+mako
+foot
+kitty
+hyprpaper
+hyprlock
+hypridle
+polkit-kde-agent
+qt5-wayland
+qt6-wayland
+wl-clipboard
+grim
+slurp
+swappy
+thunar
+firefox
+
+# Fonts
+ttf-dejavu
+ttf-liberation
+noto-fonts
+noto-fonts-emoji
+ttf-jetbrains-mono
+
+# Installer
+calamares
+arch-install-scripts
+
+# Dev / QoL
+neovim
+htop
+btop
+fastfetch
+man-db
+bash-completion

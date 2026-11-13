@@ -1,0 +1,4 @@
+.work/
+repo/out/
+out/
+*.pkg.tar.*

@@ -1,0 +1,32 @@
+---
+componentName: horyos
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+
+strings:
+    productName:          HoryOS
+    shortProductName:     HoryOS
+    version:              "rolling"
+    shortVersion:         rolling
+    versionedName:        HoryOS
+    shortVersionedName:   HoryOS
+    bootloaderEntryName:  HoryOS
+    productUrl:           https://github.com/horizzon3507/horyos
+    supportUrl:           https://github.com/horizzon3507/horyos/issues
+    knownIssuesUrl:       https://github.com/horizzon3507/horyos/issues
+    releaseNotesUrl:      https://github.com/horizzon3507/horyos/releases
+    donateUrl:            ""
+
+images:
+    productLogo:         "logo.png"
+    productIcon:         "logo.png"
+    productWelcome:      "welcome.png"
+
+style:
+   sidebarBackground:    "#11131a"
+   sidebarText:          "#cdd6f4"
+   sidebarTextCurrent:   "#8ab4f8"
+   sidebarTextSelect:    "#2a2e3a"
+
+slideshowAPI: 2
+slideshow:               "show.qml"
