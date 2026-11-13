@@ -1,20 +1,20 @@
 ---
-componentName: horyos
+componentName: monarch
 welcomeStyleCalamares: true
 welcomeExpandingLogo: true
 
 strings:
-    productName:          HoryOS
-    shortProductName:     HoryOS
+    productName:          Monarch
+    shortProductName:     Monarch
     version:              "rolling"
     shortVersion:         rolling
-    versionedName:        HoryOS
-    shortVersionedName:   HoryOS
-    bootloaderEntryName:  HoryOS
-    productUrl:           https://github.com/horizzon3507/horyos
-    supportUrl:           https://github.com/horizzon3507/horyos/issues
-    knownIssuesUrl:       https://github.com/horizzon3507/horyos/issues
-    releaseNotesUrl:      https://github.com/horizzon3507/horyos/releases
+    versionedName:        Monarch
+    shortVersionedName:   Monarch
+    bootloaderEntryName:  Monarch
+    productUrl:           https://github.com/horizzon3507/monarch
+    supportUrl:           https://github.com/horizzon3507/monarch/issues
+    knownIssuesUrl:       https://github.com/horizzon3507/monarch/issues
+    releaseNotesUrl:      https://github.com/horizzon3507/monarch/releases
     donateUrl:            ""
 
 images:

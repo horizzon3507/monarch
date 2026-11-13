@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# HoryOS archiso profile (based on releng layout)
+# Monarch archiso profile (based on releng layout)
 
-iso_name="horyos"
-iso_label="HORYOS_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
-iso_publisher="Horizzon <https://github.com/horizzon3507/horyos>"
-iso_application="HoryOS Live/Install"
+iso_name="monarch"
+iso_label="MONARCH_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
+iso_publisher="Horizzon <https://github.com/horizzon3507/monarch>"
+iso_application="Monarch Live/Install"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
-install_dir="horyos"
+install_dir="monarch"
 buildmodes=('iso')
 bootmodes=('bios.syslinux' 'uefi.systemd-boot')
 pacman_conf="pacman.conf"

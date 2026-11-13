@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Builds every package listed in repo/packages.txt and assembles the
-# `horyos` pacman repository in repo/out/x86_64.
+# `monarch` pacman repository in repo/out/x86_64.
 #
 # Usage: ./repo/build-repo.sh [workdir]
 set -euo pipefail
 
-REPO_NAME=horyos
+REPO_NAME=monarch
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 WORK="${1:-$ROOT/.work}"
 OUT="$ROOT/repo/out/x86_64"

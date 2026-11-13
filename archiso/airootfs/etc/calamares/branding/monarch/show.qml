@@ -1,4 +1,4 @@
-/* HoryOS Calamares slideshow — single minimal card */
+/* Monarch Calamares slideshow — single minimal card */
 
 import QtQuick 2.0
 import calamares.slideshow 1.0
@@ -22,7 +22,7 @@ Presentation {
                 spacing: 16
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "HoryOS"
+                    text: "Monarch"
                     color: "#8ab4f8"
                     font.pixelSize: 64
                     font.weight: Font.Bold

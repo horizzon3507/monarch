@@ -12,7 +12,7 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 # Hostname
-echo 'horyos' > /etc/hostname
+echo 'monarch' > /etc/hostname
 
 # Services
 systemctl enable NetworkManager
