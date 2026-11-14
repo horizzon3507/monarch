@@ -37,6 +37,7 @@ fi
 EOF
 
 # Passwordless sudo for the live session
+mkdir -p /etc/sudoers.d
 echo 'live ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/90-live
 chmod 440 /etc/sudoers.d/90-live
 
