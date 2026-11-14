@@ -47,8 +47,10 @@ jobs:
       - name: Prepare profile
         run: |
           # Our profile is an overlay on releng: pull in the bits we don't fork
-          # (bootloader templates, initrd hooks) and keep our own airootfs.
+          # (bootloader templates, initrd hooks, live-env helper scripts)
+          # and keep our own airootfs files where they overlap.
           cp -rn /usr/share/archiso/configs/releng/{grub,syslinux,efiboot,bootstrap_image.*} archiso/ 2>/dev/null || true
+          cp -rn /usr/share/archiso/configs/releng/airootfs/. archiso/airootfs/
       - name: Build ISO
         run: mkarchiso -v -w /tmp/work -o out archiso
       - uses: actions/upload-artifact@v4
