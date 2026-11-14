@@ -24,10 +24,10 @@ sudo pacman -S base-devel pacman-contrib
 
 O workflow `iso.yml` faz tudo num container Arch:
 
-1. job `repo` — builda os pacotes e publica em `gh-pages` (vira o repo pacman)
+1. job `repo` — builda os pacotes e publica via GitHub Pages (Actions) — vira o repo pacman
 2. job `iso` — roda `mkarchiso` e sobe a ISO como artifact
 
-Depois do primeiro run, ative **Settings → Pages → Source: gh-pages / root** pro repo ficar acessível.
+Precisa do Pages com **Source: GitHub Actions** em Settings → Pages (uma vez).
 
 ```bash
 gh workflow run iso.yml

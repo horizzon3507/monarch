@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write
 
 jobs:
   repo:
@@ -15,6 +16,9 @@ jobs:
     container:
       image: archlinux:latest
       options: --privileged
+    environment:
+      name: github-pages
+      url: https://horizzon3507.github.io/monarch/
     steps:
       - uses: actions/checkout@v4
       - name: Install build deps
@@ -24,20 +28,11 @@ jobs:
           useradd -m builder && echo 'builder ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/builder
           chown -R builder .
           sudo -u builder ./repo/build-repo.sh
-      - name: Publish repo to gh-pages
-        run: |
-          git config --global --add safe.directory "$PWD"
-          git config user.email "ci@monarch"
-          git config user.name "monarch-ci"
-          git fetch origin gh-pages:gh-pages || true
-          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
-            git checkout gh-pages
-          else
-            git checkout --orphan gh-pages && git rm -rf .
-          fi
-          mkdir -p x86_64 && cp repo/out/x86_64/* x86_64/
-          git add x86_64 && git commit -m "repo: rebuild" || true
-          git push origin gh-pages
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: repo/out
+      - uses: actions/deploy-pages@v4
 
   iso:
     needs: repo
